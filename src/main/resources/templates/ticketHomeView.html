@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <main role="main" class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Atencion </th>
+                        <th> Paciente </th>
+                        <th> Diagnostico </th>
+                        <th> Fecha Ingreso </th>
+                        <th> Fecha Salida (P) </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${ticketHomeResults.empty}">
+                        <td colspan="5"> No Records Available </td>
+                    </tr>
+                    <tr th:each="thr : ${ticketHomeResults}">
+                        <td><span th:text="${thr.IdAtencion}"> Atencion </span></td>
+                        <td><span th:text="${thr.Paciente}"> Paciente </span></td>
+                        <td><span th:text="${thr.Diagnostico}"> Diagnostico </span></td>
+                        <td><span th:text="${thr.Fecha_Ingreso}"> Fecha Ingreso </span></td>
+                        <td><span th:text="${thr.Fecha_Probable_Salida}"> Fecha Salida </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>

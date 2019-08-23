@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  *
  * @author ctorrest
  */
-public interface DBO {
+public interface MSSqlDBO {
 
     public Connection getConnection() throws SQLException;
     public String dateFormat(LocalDateTime date);

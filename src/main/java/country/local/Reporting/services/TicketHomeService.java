@@ -6,7 +6,6 @@
 package country.local.Reporting.services;
 
 import ch.qos.logback.core.CoreConstants;
-import country.local.Reporting.dbo.DBO;
 import country.local.Reporting.dbo.queries.TicketHomeQuery;
 import country.local.Reporting.dbo.queries.results.TicketHomeResult;
 import java.sql.Connection;
@@ -21,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import country.local.Reporting.dbo.MSSqlDBO;
 
 /**
  *
@@ -30,15 +30,15 @@ import org.springframework.stereotype.Service;
 public class TicketHomeService {
 
     @Autowired
-    private DBO dbo;
+    private MSSqlDBO dbo;
 
     public List<TicketHomeResult> findAll(LocalDateTime ini_date, LocalDateTime end_date) {
         List<TicketHomeResult> thr_list = new ArrayList<>();
-        try ( Connection con = dbo.getConnection();  Statement smt = con.createStatement();) {
+        try ( Connection con = dbo.getConnection()) {
             TicketHomeQuery thq = new TicketHomeQuery(dbo.dateFormat(ini_date), dbo.dateFormat(end_date));
-            smt.execute(thq.getSetUp());
-            ResultSet rs = smt.executeQuery(thq.getResult());
-            smt.execute(thq.getCleanUp());
+            con.createStatement().execute(thq.getSetUp());
+            ResultSet rs = con.createStatement().executeQuery(thq.getResult());
+            con.createStatement().execute(thq.getCleanUp());
             while (rs.next()) {
                 TicketHomeResult thr = new TicketHomeResult();
                 ticketHomeMapping(rs, thr);

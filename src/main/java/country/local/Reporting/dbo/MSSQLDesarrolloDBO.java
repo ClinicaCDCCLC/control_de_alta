@@ -11,32 +11,31 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ctorrest
  */
-@Service
-public class MSSQLDBO implements DBO {
+//@Service
+public class MSSQLDesarrolloDBO implements MSSqlDBO {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     SQLServerDataSource ds;
 
-    @Value("${mssql.server}")
+    @Value("${mssql.des.server}")
     private String server;
 
-    @Value("${mssql.portnumber}")
+    @Value("${mssql.des.portnumber}")
     private int portnumber;
 
-    @Value("${mssql.database.cty_pri}")
+    @Value("${mssql.des.database.cty_pri}")
     private String database;
 
-    @Value("${mssql.user}")
+    @Value("${mssql.des.user}")
     private String user;
 
-    @Value("${mssql.password}")
+    @Value("${mssql.des.password}")
     private String password;
 
     @Override

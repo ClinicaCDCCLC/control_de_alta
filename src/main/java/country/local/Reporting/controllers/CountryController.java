@@ -6,6 +6,7 @@
 package country.local.Reporting.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -16,4 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/Reporting")
 public class CountryController {
     
+    @GetMapping("")
+    public String home(){
+        return "index";
+    }
 }
