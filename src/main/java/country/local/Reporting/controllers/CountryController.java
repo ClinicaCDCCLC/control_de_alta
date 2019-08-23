@@ -5,10 +5,15 @@
  */
 package country.local.Reporting.controllers;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author ctorrest
  */
+@Controller
+@RequestMapping("/Reporting")
 public class CountryController {
     
 }

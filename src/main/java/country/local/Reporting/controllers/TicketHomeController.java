@@ -6,8 +6,10 @@
 package country.local.Reporting.controllers;
 
 import country.local.Reporting.services.TicketHomeService;
+import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,14 +18,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author ctorrest
  */
 @Controller
-@RequestMapping(path = "/ticketHome")
+@RequestMapping("/ticketHome")
 public class TicketHomeController {
     
     @Autowired
     TicketHomeService service;
     
     @GetMapping("/all")
-    public String getTicketHome(){
-        return "/ticketHomeView";
+    public String getTicketHome(Model model){
+        LocalDateTime ini = LocalDateTime.now();
+        LocalDateTime end = ini.minusMonths(6);
+        model.addAttribute("ticketHomeResults", service.findAll(ini, end));
+        return "ticketHomeView";
     }
 }

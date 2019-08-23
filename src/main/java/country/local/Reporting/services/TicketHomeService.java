@@ -5,6 +5,7 @@
  */
 package country.local.Reporting.services;
 
+import ch.qos.logback.core.CoreConstants;
 import country.local.Reporting.dbo.DBO;
 import country.local.Reporting.dbo.queries.TicketHomeQuery;
 import country.local.Reporting.dbo.queries.results.TicketHomeResult;
@@ -46,6 +47,7 @@ public class TicketHomeService {
         } catch (SQLException ex) {
             Logger.getLogger(TicketHomeService.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(thr_list.size());
         return thr_list;
     }
 
