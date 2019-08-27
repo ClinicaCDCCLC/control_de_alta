@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.reporting.service;
+package country.local.Reporting.services;
 
-import country.local.reporting.model.TicketHomeResult;
+import country.local.Reporting.models.TicketHomeResult;
 import java.util.List;
 
 /**
@@ -15,4 +15,5 @@ import java.util.List;
 public interface TicketHomeService {
 
     public List<TicketHomeResult> findAll();
+    public List<TicketHomeResult> findAllbyIdUbicacion(int idUbicacion);
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="mybatis.mappers.TicketHomeMapper">
+    <select id="findAll" resultType="country.local.Reporting.models.TicketHomeResult">
+        select * from VwBoletoCasa
+    </select>
+    
+    <select id="findByIdUbicacion" resultType="country.local.Reporting.models.TicketHomeResult">
+        select * from VwBoletoCasa where idUbicacion = #{idUbicacion}
+    </select>
+</mapper>
