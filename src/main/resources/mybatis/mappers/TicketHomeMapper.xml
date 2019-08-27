@@ -2,7 +2,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="mybatis.mappers.TicketHomeMapper">
+<mapper namespace="country.local.Reporting.dao.TicketHomeMapper">
     <select id="findAll" resultType="country.local.Reporting.models.TicketHomeResult">
         select * from VwBoletoCasa order by codCama
     </select>
