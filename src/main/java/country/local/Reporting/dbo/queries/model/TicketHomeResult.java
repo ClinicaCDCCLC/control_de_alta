@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.Reporting.dbo.queries.results;
+package country.local.Reporting.dbo.queries.model;
 
 import java.time.LocalDateTime;
 

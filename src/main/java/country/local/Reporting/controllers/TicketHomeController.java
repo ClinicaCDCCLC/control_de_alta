@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/ticketHome")
 public class TicketHomeController {
-    
+
     @Autowired
     TicketHomeService service;
-    
-    @GetMapping("/all")
-    public String getTicketHome(Model model){
+
+    @GetMapping
+    public String getTicketHome(Model model) {
         LocalDateTime ini = LocalDateTime.now();
         LocalDateTime end = ini.minusMonths(6);
         model.addAttribute("ticketHomeResults", service.findAll(ini, end));
