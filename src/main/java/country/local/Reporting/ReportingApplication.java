@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("country.local.Reporting.mappers")
+@MapperScan("country.local.Reporting.dao")
 public class ReportingApplication {
 
     public static void main(String[] args) {

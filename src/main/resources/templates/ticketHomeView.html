@@ -27,6 +27,7 @@ and open the template in the editor.
             <table class='table tableFixHead table-bordered'>
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col"> Cod Cama </th>
                         <th scope="col"> Atencion </th>
                         <th scope="col"> Paciente </th>
                         <th scope="col"> Genero </th>
@@ -34,7 +35,6 @@ and open the template in the editor.
                         <th scope="col"> Diagnostico </th>
                         <th scope="col"> Fecha Ingreso </th>
                         <th scope="col"> Fecha Salida (P) </th>
-                        <th scope="col"> Cod Cama </th>
                         <th scope="col"> Medico Tratante </th>
                         <th scope="col"> Dias Postergados </th>
                         <th scope="col"> Causal </th>
@@ -51,16 +51,16 @@ and open the template in the editor.
                     <tr th:classappend="${(thr.color == 3 ? 'table-danger' : '') +
                         (thr.color == 2 ? 'table-warning' : '') +
                         (thr.color == 1 ? 'table-success' : '')}">
-                        <td><span th:text="${thr.id_atencion}"></span></td>
+                        <td><span th:text="${thr.codCama}"></span></td>
+                        <td><span th:text="${thr.idAtencion}"></span></td>
                         <td><span th:text="${thr.paciente}"></span></td>
                         <td><span th:text="${thr.genero}"></span></td>
                         <td><span th:text="${thr.codigo_CIE10}"></span></td>
                         <td><span th:text="${thr.diagnostico}"></span></td>
                         <td><span th:text="${thr.fecha_ingreso}"></span></td>
                         <td><span th:text="${thr.fecha_probable_salida}"></span></td>
-                        <td><span th:text="${thr.cod_cama}"></span></td>
                         <td><span th:text="${thr.medico_tratante}"></span></td>
-                        <td><span th:text="${thr.dias_postergacion}"></span></td>
+                        <td><span th:text="${thr.diasPostergacion}"></span></td>
                         <td><span th:text="${thr.causal}"></span></td>
                         <td><span th:text="${thr.usuario}"></span></td>
                         <td><span th:text="${thr.fecha_registro}"></span></td>

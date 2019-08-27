@@ -5,7 +5,7 @@
  */
 package country.local.Reporting.services;
 
-import country.local.Reporting.mappers.TicketHomeMapper;
+import country.local.Reporting.dao.TicketHomeMapper;
 import country.local.Reporting.models.TicketHomeResult;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

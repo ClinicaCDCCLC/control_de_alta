@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.Reporting.mappers;
+package country.local.Reporting.dao;
 
 import country.local.Reporting.models.TicketHomeResult;
 import java.util.List;
