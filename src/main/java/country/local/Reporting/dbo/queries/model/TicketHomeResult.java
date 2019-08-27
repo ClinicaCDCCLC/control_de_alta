@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.Reporting.dbo.queries.model;
+package country.local.reporting.dbo.queries.model;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * @author ctorrest
  */
 public class TicketHomeResult {
-    
+
     private int IdAtencion;
     private String Paciente;
     private String Genero;
@@ -264,5 +264,9 @@ public class TicketHomeResult {
 
     public void setUci(String Uci) {
         this.Uci = Uci;
+    }
+
+    public Color getColor() {
+        return Color.RED;
     }
 }

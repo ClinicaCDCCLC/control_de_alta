@@ -28,7 +28,7 @@ and open the template in the editor.
                         <th scope="col"> Fecha Salida (P) </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody th:switch="">
                     <tr th:if="${ticketHomeResults.empty}">
                         <td colspan="5"> No Records Available </td>
                     </tr>

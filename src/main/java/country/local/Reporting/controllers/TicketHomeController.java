@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.Reporting.controllers;
+package country.local.reporting.controllers;
 
-import country.local.Reporting.services.TicketHomeService;
+import country.local.reporting.services.TicketHomeService;
 import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.Reporting.services;
+package country.local.reporting.services;
 
-import country.local.Reporting.dbo.queries.TicketHomeQuery;
-import country.local.Reporting.dbo.queries.model.TicketHomeResult;
+import country.local.reporting.dbo.queries.TicketHomeQuery;
+import country.local.reporting.dbo.queries.model.TicketHomeResult;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import country.local.Reporting.dbo.MSSqlDBO;
+import country.local.reporting.dbo.MSSqlDBO;
 
 /**
  *
