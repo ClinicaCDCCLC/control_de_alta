@@ -18,9 +18,9 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface TicketHomeMapper {
 
-    @Select("select * from VwBoletoCasa")
+    @Select("select * from VwBoletoCasa order by codCama")
     public List<TicketHomeResult> findAll();
 
-    @Select("select * from VwBoletoCasa where idUbicacion = #{idUbicacion}")
+    @Select("select * from VwBoletoCasa where idUbicacion = #{idUbicacion} order by codCama")
     public List<TicketHomeResult> findByIdUbicacion(@Param("idUbicacion") int idUbicacion);
 }

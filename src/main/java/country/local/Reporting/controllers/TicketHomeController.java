@@ -33,6 +33,6 @@ public class TicketHomeController {
     @GetMapping("/idUbicacion={id_ubicacion}")
     public String getTicketHomeByIdUbicacion(@PathVariable int id_ubicacion, Model model) {
         model.addAttribute("ticketHomeResults", service.findAllbyIdUbicacion(id_ubicacion));
-        return "ticketHomeView";
+        return "ticketHomeUbicacionView";
     }
 }

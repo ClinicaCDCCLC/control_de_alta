@@ -4,10 +4,10 @@
     
 <mapper namespace="mybatis.mappers.TicketHomeMapper">
     <select id="findAll" resultType="country.local.Reporting.models.TicketHomeResult">
-        select * from VwBoletoCasa
+        select * from VwBoletoCasa order by codCama
     </select>
     
     <select id="findByIdUbicacion" resultType="country.local.Reporting.models.TicketHomeResult">
-        select * from VwBoletoCasa where idUbicacion = #{idUbicacion}
+        select * from VwBoletoCasa where idUbicacion = #{idUbicacion} order by codCama
     </select>
 </mapper>
