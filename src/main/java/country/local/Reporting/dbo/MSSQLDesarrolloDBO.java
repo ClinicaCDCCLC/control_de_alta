@@ -11,12 +11,13 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ctorrest
  */
-//@Service
+@Service
 public class MSSQLDesarrolloDBO implements MSSqlDBO {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -29,7 +30,7 @@ public class MSSQLDesarrolloDBO implements MSSqlDBO {
     @Value("${mssql.des.portnumber}")
     private int portnumber;
 
-    @Value("${mssql.des.database.cty_pri}")
+    @Value("${mssql.des.database}")
     private String database;
 
     @Value("${mssql.des.user}")

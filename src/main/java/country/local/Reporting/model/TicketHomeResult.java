@@ -5,7 +5,9 @@
  */
 package country.local.reporting.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 
 /**
  *
@@ -13,6 +15,7 @@ import java.time.LocalDateTime;
  */
 public class TicketHomeResult {
 
+    public static final int DEFAULT = 0;
     public static final int GREEN = 1;
     public static final int YELLOW = 2;
     public static final int RED = 3;
@@ -31,10 +34,6 @@ public class TicketHomeResult {
     private String usuario;
     private LocalDateTime fecha_registro;
     private int color;
-
-    public TicketHomeResult() {
-        this.color = GREEN;
-    }
 
     public int getId_atencion() {
         return id_atencion;
@@ -90,6 +89,16 @@ public class TicketHomeResult {
 
     public void setFecha_probable_salida(LocalDateTime fecha_probable_salida) {
         this.fecha_probable_salida = fecha_probable_salida;
+        Period between = Period.between(LocalDate.now(), fecha_probable_salida.toLocalDate());
+        if (between.getDays() < 0) {
+            this.color = RED;
+        } else if (between.getDays() < 1) {
+            this.color = YELLOW;
+        } else if (between.getDays() < 2) {
+            this.color = GREEN;
+        } else {
+            this.color = DEFAULT;
+        }
     }
 
     public int getCod_cama() {

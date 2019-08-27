@@ -5,19 +5,5 @@
  */
 
 var ticketHome = (function () {
-    var GREEN = 1;
-    var YELLOW = 2;
-    var RED = 3;
-
-    var getColorClass = function (id, color) {
-        console.log(id + "," + color);
-        let _color = color === GREEN ? "table-success" :
-                color === YELLOW ? "table-warning" :
-                color === RED ? "table-danger" :
-                "table-default";
-
-        $(`#${id}`).addClass(_color);
-    };
-
-    return {getColorClass: getColorClass()};
+    
 })();

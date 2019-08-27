@@ -6,7 +6,6 @@
 package country.local.reporting.service;
 
 import country.local.reporting.model.TicketHomeResult;
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -15,5 +14,5 @@ import java.util.List;
  */
 public interface TicketHomeService {
 
-    public List<TicketHomeResult> findAll(LocalDateTime ini_date, LocalDateTime end_date);
+    public List<TicketHomeResult> findAll();
 }

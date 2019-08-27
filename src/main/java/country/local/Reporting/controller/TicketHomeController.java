@@ -26,9 +26,7 @@ public class TicketHomeController {
 
     @GetMapping
     public String getTicketHome(Model model) {
-        LocalDateTime ini = LocalDateTime.now();
-        LocalDateTime end = ini.minusMonths(6);
-        model.addAttribute("ticketHomeResults", service.findAll(ini, end));
+        model.addAttribute("ticketHomeResults", service.findAll());
         return "ticketHomeView";
     }
 }

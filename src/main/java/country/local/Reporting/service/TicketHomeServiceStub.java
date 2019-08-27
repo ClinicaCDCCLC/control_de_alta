@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
  *
  * @author caman
  */
-@Service
+//@Service
 public class TicketHomeServiceStub implements TicketHomeService {
 
     private ArrayList<TicketHomeResult> results;
 
     @Override
-    public List<TicketHomeResult> findAll(LocalDateTime ini_date, LocalDateTime end_date) {
+    public List<TicketHomeResult> findAll() {
         if (results == null) {
             results = new ArrayList<>();
 
