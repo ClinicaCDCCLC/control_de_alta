@@ -17,125 +17,134 @@ public class TicketHomeResult {
     public static final int YELLOW = 2;
     public static final int RED = 3;
 
-    private int IdAtencion;
-    private String Paciente;
-    private String Genero;
-    private String Codigo_CIE10;
-    private String Diagnostico;
-    private LocalDateTime Fecha_Ingreso;
-    private LocalDateTime Fecha_Probable_Salida;
-    private int CodCama;
-    private String Medico_Tratante;
-    private int DiasPostergacion;
-    private String Causal;
-    private String Usuario;
-    private LocalDateTime Fecha_Registro;
+    private int id_atencion;
+    private String paciente;
+    private String genero;
+    private String codigo_CIE10;
+    private String diagnostico;
+    private LocalDateTime fecha_ingreso;
+    private LocalDateTime fecha_probable_salida;
+    private int cod_cama;
+    private String medico_tratante;
+    private int dias_postergacion;
+    private String causal;
+    private String usuario;
+    private LocalDateTime fecha_registro;
+    private int color;
 
-    public int getIdAtencion() {
-        return IdAtencion;
+    public TicketHomeResult() {
+        this.color = GREEN;
     }
 
-    public void setIdAtencion(int IdAtencion) {
-        this.IdAtencion = IdAtencion;
+    public int getId_atencion() {
+        return id_atencion;
+    }
+
+    public void setId_atencion(int id_atencion) {
+        this.id_atencion = id_atencion;
     }
 
     public String getPaciente() {
-        return Paciente;
+        return paciente;
     }
 
-    public void setPaciente(String Paciente) {
-        this.Paciente = Paciente;
+    public void setPaciente(String paciente) {
+        this.paciente = paciente;
     }
 
     public String getGenero() {
-        return Genero;
+        return genero;
     }
 
-    public void setGenero(String Genero) {
-        this.Genero = Genero;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getCodigo_CIE10() {
-        return Codigo_CIE10;
+        return codigo_CIE10;
     }
 
-    public void setCodigo_CIE10(String Codigo_CIE10) {
-        this.Codigo_CIE10 = Codigo_CIE10;
+    public void setCodigo_CIE10(String codigo_CIE10) {
+        this.codigo_CIE10 = codigo_CIE10;
     }
 
     public String getDiagnostico() {
-        return Diagnostico;
+        return diagnostico;
     }
 
-    public void setDiagnostico(String Diagnostico) {
-        this.Diagnostico = Diagnostico;
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
     }
 
-    public LocalDateTime getFecha_Ingreso() {
-        return Fecha_Ingreso;
+    public LocalDateTime getFecha_ingreso() {
+        return fecha_ingreso;
     }
 
-    public void setFecha_Ingreso(LocalDateTime Fecha_Ingreso) {
-        this.Fecha_Ingreso = Fecha_Ingreso;
+    public void setFecha_ingreso(LocalDateTime fecha_ingreso) {
+        this.fecha_ingreso = fecha_ingreso;
     }
 
-    public LocalDateTime getFecha_Probable_Salida() {
-        return Fecha_Probable_Salida;
+    public LocalDateTime getFecha_probable_salida() {
+        return fecha_probable_salida;
     }
 
-    public void setFecha_Probable_Salida(LocalDateTime Fecha_Probable_Salida) {
-        this.Fecha_Probable_Salida = Fecha_Probable_Salida;
+    public void setFecha_probable_salida(LocalDateTime fecha_probable_salida) {
+        this.fecha_probable_salida = fecha_probable_salida;
     }
 
-    public int getCodCama() {
-        return CodCama;
+    public int getCod_cama() {
+        return cod_cama;
     }
 
-    public void setCodCama(int CodCama) {
-        this.CodCama = CodCama;
+    public void setCod_cama(int cod_cama) {
+        this.cod_cama = cod_cama;
     }
 
-    public String getMedico_Tratante() {
-        return Medico_Tratante;
+    public String getMedico_tratante() {
+        return medico_tratante;
     }
 
-    public void setMedico_Tratante(String Medico_Tratante) {
-        this.Medico_Tratante = Medico_Tratante;
+    public void setMedico_tratante(String medico_tratante) {
+        this.medico_tratante = medico_tratante;
     }
 
-    public int getDiasPostergacion() {
-        return DiasPostergacion;
+    public int getDias_postergacion() {
+        return dias_postergacion;
     }
 
-    public void setDiasPostergacion(int DiasPostergacion) {
-        this.DiasPostergacion = DiasPostergacion;
+    public void setDias_postergacion(int dias_postergacion) {
+        this.dias_postergacion = dias_postergacion;
     }
 
     public String getCausal() {
-        return Causal;
+        return causal;
     }
 
-    public void setCausal(String Causal) {
-        this.Causal = Causal;
+    public void setCausal(String causal) {
+        this.causal = causal;
     }
 
     public String getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public LocalDateTime getFecha_Registro() {
-        return Fecha_Registro;
+    public LocalDateTime getFecha_registro() {
+        return fecha_registro;
     }
 
-    public void setFecha_Registro(LocalDateTime Fecha_Registro) {
-        this.Fecha_Registro = Fecha_Registro;
+    public void setFecha_registro(LocalDateTime fecha_registro) {
+        this.fecha_registro = fecha_registro;
     }
 
     public int getColor() {
-        return GREEN;
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }

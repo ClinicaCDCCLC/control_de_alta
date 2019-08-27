@@ -24,6 +24,23 @@ public class TicketHomeServiceStub implements TicketHomeService {
     public List<TicketHomeResult> findAll(LocalDateTime ini_date, LocalDateTime end_date) {
         if (results == null) {
             results = new ArrayList<>();
+
+            TicketHomeResult thr = new TicketHomeResult();
+            thr.setId_atencion(1);
+            thr.setPaciente("CAMILO TORRES");
+            thr.setGenero("Masculino");
+            thr.setCodigo_CIE10("J46X");
+            thr.setDiagnostico("ESTADO ASMATICO - (J46X)");
+            thr.setFecha_ingreso(LocalDateTime.now());
+            thr.setFecha_probable_salida(LocalDateTime.now());
+            thr.setCod_cama(504);
+            thr.setMedico_tratante("DIANA MARCELA BUSTOS TRIANA");
+            thr.setDias_postergacion(0);
+            thr.setCausal("NULL");
+            thr.setUsuario("ASTRID CAMARGO");
+            thr.setFecha_registro(LocalDateTime.now());
+
+            results.add(thr);
         }
         return results;
     }

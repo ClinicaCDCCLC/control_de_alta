@@ -15,10 +15,11 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" th:src="@{/js/src/TicketHomeModule.js}"></script>
     </head>
     <body>
         <main role="main" class="container">
-            <table class="table text-center">
+            <table class="table text-center" onload="'ticketHome.getColorClass(1, 1)'">
                 <thead>
                     <tr>
                         <th scope="col"> Atencion </th>
@@ -33,12 +34,14 @@ and open the template in the editor.
                         <td colspan="5"> No Records Available </td>
                     </tr>
                 <th:block th:each="thr : ${ticketHomeResults}">
-                    <tr th:id="${thr.IdAtencion}" onload="ticketHome.colorUpdate('${thr.IdAtencion}', '${thr.}')">
-                        <td><span th:text="${thr.IdAtencion}"> Atencion </span></td>
-                        <td><span th:text="${thr.Paciente}"> Paciente </span></td>
-                        <td><span th:text="${thr.Diagnostico}"> Diagnostico </span></td>
-                        <td><span th:text="${thr.Fecha_Ingreso}"> Fecha Ingreso </span></td>
-                        <td><span th:text="${thr.Fecha_Probable_Salida}"> Fecha Salida </span></td>
+                    <tr th:classappend="${(thr.color == 3 ? 'table-danger' : '') +
+                        (thr.color == 2 ? 'table-warning' : '') +
+                        (thr.color == 1 ? 'table-success' : '')}">
+                        <td><span th:text="${thr.id_atencion}"></span></td>
+                        <td><span th:text="${thr.paciente}"></span></td>
+                        <td><span th:text="${thr.diagnostico}"></span></td>
+                        <td><span th:text="${thr.fecha_ingreso}"></span></td>
+                        <td><span th:text="${thr.fecha_probable_salida}"></span></td>
                     </tr>
                 </th:block>
                 </tbody>
