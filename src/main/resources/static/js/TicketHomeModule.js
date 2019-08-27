@@ -5,5 +5,18 @@
  */
 
 var ticketHome = (function () {
+    var GREEN = 1;
+    var YELLOW = 2;
+    var RED = 3;
 
+    var colorUpdate = function (id, color) {
+        let color_class =
+                color == GREEN ? "table-success" :
+                color == YELLOW ? "table-warning" :
+                color == RED ? "table-danger" :
+                "table-default";
+        $(`.${id}`).addClass(color_class)
+    }
+
+    return {colorUpdate: colorUpdate};
 })();

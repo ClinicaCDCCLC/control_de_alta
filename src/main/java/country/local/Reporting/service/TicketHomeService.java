@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package country.local.reporting.services;
+package country.local.reporting.service;
 
-import country.local.reporting.dbo.queries.model.TicketHomeResult;
+import country.local.reporting.model.TicketHomeResult;
 import java.time.LocalDateTime;
 import java.util.List;
 

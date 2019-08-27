@@ -28,17 +28,19 @@ and open the template in the editor.
                         <th scope="col"> Fecha Salida (P) </th>
                     </tr>
                 </thead>
-                <tbody th:switch="">
+                <tbody>
                     <tr th:if="${ticketHomeResults.empty}">
                         <td colspan="5"> No Records Available </td>
                     </tr>
-                    <tr th:each="thr : ${ticketHomeResults}">
+                <th:block th:each="thr : ${ticketHomeResults}">
+                    <tr th:id="${thr.IdAtencion}" onload="ticketHome.colorUpdate('${thr.IdAtencion}', '${thr.}')">
                         <td><span th:text="${thr.IdAtencion}"> Atencion </span></td>
                         <td><span th:text="${thr.Paciente}"> Paciente </span></td>
                         <td><span th:text="${thr.Diagnostico}"> Diagnostico </span></td>
                         <td><span th:text="${thr.Fecha_Ingreso}"> Fecha Ingreso </span></td>
                         <td><span th:text="${thr.Fecha_Probable_Salida}"> Fecha Salida </span></td>
                     </tr>
+                </th:block>
                 </tbody>
             </table>
         </main>
