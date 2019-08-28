@@ -4,17 +4,18 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Se ha encontrado un error</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" th:href="@{/css/lib/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/css/Utils.css}"/>
+        <script th:src="@{/js/lib/jquery.min.js}"></script>
+        <script th:src="@{/js/lib/bootstrap.min.js}"></script>
     </head>
     <body>
         <div class="cover">
             <h1>Se ha encontrado un error de servidor</h1>
-            <p class="lead">Por favor contactar a Camilo Torres ext:/p>
+            <p class="lead">Por favor contactar a Camilo Torres ext:2097 </p>
             <p>El servicio no se encuentra disponible.</p>
         </div>
     </body>

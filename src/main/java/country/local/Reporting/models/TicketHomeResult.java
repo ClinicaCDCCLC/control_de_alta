@@ -16,19 +16,20 @@ import java.time.format.DateTimeFormatter;
  */
 public class TicketHomeResult {
 
-    private static final DateTimeFormatter FP_FORMATTER = DateTimeFormatter.ofPattern("d/MM/yyyy");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
     public static final int DEFAULT = 0;
     public static final int YELLOW = 1;
     public static final int ORANGE = 2;
     public static final int RED = 3;
+    public static final int GREEN = 4;
 
     private int idAtencion;
     private String paciente;
-    private String genero;
+    private char genero;
     private String codigo_CIE10;
     private String diagnostico;
-    private LocalDateTime fecha_ingreso;
+    private LocalDate fecha_ingreso;
     private LocalDate fecha_probable_salida;
     private String codCama;
     private String medico_tratante;
@@ -39,6 +40,11 @@ public class TicketHomeResult {
     private int idUbicacion;
     private String nomUbicacion;
     private int color;
+    private String BAC;
+
+    public String getBAC() {
+        return BAC;
+    }
 
     public int getIdAtencion() {
         return idAtencion;
@@ -56,12 +62,12 @@ public class TicketHomeResult {
         this.paciente = paciente;
     }
 
-    public String getGenero() {
+    public char getGenero() {
         return genero;
     }
 
     public void setGenero(String genero) {
-        this.genero = genero;
+        this.genero = genero.charAt(0);
     }
 
     public String getCodigo_CIE10() {
@@ -80,12 +86,12 @@ public class TicketHomeResult {
         this.diagnostico = diagnostico;
     }
 
-    public LocalDateTime getFecha_ingreso() {
+    public LocalDate getFecha_ingreso() {
         return fecha_ingreso;
     }
 
-    public void setFecha_ingreso(Timestamp fecha_ingreso) {
-        this.fecha_ingreso = fecha_ingreso.toLocalDateTime();
+    public void setFecha_ingreso(String fecha_ingreso) {
+        this.fecha_ingreso = LocalDate.parse(fecha_ingreso, FORMATTER);
     }
 
     public LocalDate getFecha_probable_salida() {
@@ -93,11 +99,15 @@ public class TicketHomeResult {
     }
 
     public void setFecha_probable_salida(String fecha_probable_salida) {
-        this.fecha_probable_salida = LocalDate.parse(fecha_probable_salida, FP_FORMATTER);
+        this.fecha_probable_salida = LocalDate.parse(fecha_probable_salida, FORMATTER);
     }
 
     public String getCodCama() {
         return codCama;
+    }
+
+    public void setBAC(int BAC) {
+        this.BAC = BAC == 1 ? "Si" : "No";
     }
 
     public void setCodCama(String codCama) {

@@ -9,66 +9,72 @@ and open the template in the editor.
         <title>Boleto a Casa</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="refresh" th:content="5" >
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" th:src="@{/js/src/TicketHomeModule.js}"></script>
+        <meta http-equiv="refresh" th:content="60" >
+        <link rel="stylesheet" th:href="@{/css/lib/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/css/Utils.css}"/>
+        <script th:src="@{/js/lib/jquery.min.js}"></script>
+        <script th:src="@{/js/lib/bootstrap.min.js}"></script>
     </head>
     <body>
-        <div class="row">
-            <div class="col-sm-4">
-                <img th:src="@{/img/country_logo.png}" class="img-fluid" alt="Logo">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <img th:src="@{/img/country_logo.png}" class="img-fluid" alt="Logo">
+                </div>
+                <div class="col-8">
+                    <h1>Gestión de Alta Oportuna</h1>
+                </div>
+                <div class="col-4">
+                    <img th:src="@{/img/leyenda.png}" width="40%" height="40%" class="img-fluid" alt="Leyenda">
+                </div>
             </div>
-            <div class="col-sm-8">
-                <h1>Boleto a Casa</h1>
+            <div class="table-responsive">
+                <table class='table tableFixHead table-bordered'>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col"> Habitación </th>
+                            <th scope="col"> Atención </th>
+                            <th scope="col"> Paciente </th>
+                            <th scope="col"> Género </th>
+                            <th scope="col"> Código CIE10 </th>
+                            <th scope="col"> Diagnóstico </th>
+                            <th scope="col"> Fecha Ingreso </th>
+                            <th scope="col"> Fecha Salida Probable </th>
+                            <th scope="col"> Médico Tratante </th>
+                            <th scope="col"> Días Postergación </th>
+                            <th scope="col"> Causal </th>
+                            <th scope="col"> Usuario </th>
+                            <th scope="col"> Boleto a Casa </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${ticketHomeResults.empty}">
+                            <td colspan="13"> No Records Available </td>
+                        </tr>
+                    <th:block th:each="thr : ${ticketHomeResults}">
+                        <!-- 1=GREEN, 2=YELLOW, 3=RED-->
+                        <tr th:classappend="${(thr.color == 4 ? 'bgc-green' : '') +
+                            (thr.color == 3 ? 'bgc-red' : '') +
+                            (thr.color == 2 ? 'bgc-orange' : '') +
+                            (thr.color == 1 ? 'bgc-yellow' : '')}">
+                            <td><span th:text="${thr.codCama}"></span></td>
+                            <td><span th:text="${thr.idAtencion}"></span></td>
+                            <td><span th:text="${thr.paciente}"></span></td>
+                            <td><span th:text="${thr.genero}"></span></td>
+                            <td><span th:text="${thr.codigo_CIE10}"></span></td>
+                            <td><span th:text="${thr.diagnostico}"></span></td>
+                            <td><span th:text="${thr.fecha_ingreso}"></span></td>
+                            <td><span th:text="${thr.fecha_probable_salida}"></span></td>
+                            <td><span th:text="${thr.medico_tratante}"></span></td>
+                            <td><span th:text="${thr.diasPostergacion}"></span></td>
+                            <td><span th:text="${thr.causal}"></span></td>
+                            <td><span th:text="${thr.usuario}"></span></td>
+                            <td><span th:text="${thr.BAC}"></span></td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
             </div>
-        </div>
-        <div class="table-responsive">
-            <table class='table tableFixHead table-bordered'>
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col"> Cod Cama </th>
-                        <th scope="col"> Atencion </th>
-                        <th scope="col"> Paciente </th>
-                        <th scope="col"> Genero </th>
-                        <th scope="col"> Codigo CIE10 </th>
-                        <th scope="col"> Diagnostico </th>
-                        <th scope="col"> Fecha Ingreso </th>
-                        <th scope="col"> Fecha Salida (P) </th>
-                        <th scope="col"> Medico Tratante </th>
-                        <th scope="col"> Dias Postergación </th>
-                        <th scope="col"> Causal </th>
-                        <th scope="col"> Usuario </th>
-                        <th scope="col"> Fecha Registro </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:if="${ticketHomeResults.empty}">
-                        <td colspan="13"> No Records Available </td>
-                    </tr>
-                <th:block th:each="thr : ${ticketHomeResults}">
-                    <!-- 1=GREEN, 2=YELLOW, 3=RED-->
-                    <tr th:classappend="${(thr.color == 3 ? 'table-danger' : '') +
-                        (thr.color == 2 ? 'table-warning' : '') +
-                        (thr.color == 1 ? 'table-success' : '')}">
-                        <td><span th:text="${thr.codCama}"></span></td>
-                        <td><span th:text="${thr.idAtencion}"></span></td>
-                        <td><span th:text="${thr.paciente}"></span></td>
-                        <td><span th:text="${thr.genero}"></span></td>
-                        <td><span th:text="${thr.codigo_CIE10}"></span></td>
-                        <td><span th:text="${thr.diagnostico}"></span></td>
-                        <td><span th:text="${thr.fecha_ingreso}"></span></td>
-                        <td><span th:text="${thr.fecha_probable_salida}"></span></td>
-                        <td><span th:text="${thr.medico_tratante}"></span></td>
-                        <td><span th:text="${thr.diasPostergacion}"></span></td>
-                        <td><span th:text="${thr.causal}"></span></td>
-                        <td><span th:text="${thr.usuario}"></span></td>
-                        <td><span th:text="${thr.fecha_registro}"></span></td>
-                    </tr>
-                </th:block>
-                </tbody>
-            </table>
         </div>
     </body>
 </html>
