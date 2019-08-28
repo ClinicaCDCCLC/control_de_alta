@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>country.local</groupId>
-    <artifactId>reporting</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>Reporting</artifactId>
+    <version>1.0</version>
     <name>Reporting</name>
     <description>Custom backend for BI</description>
 
@@ -42,6 +42,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
         <dependency>
             <groupId>org.thymeleaf</groupId>
@@ -70,6 +74,7 @@
     </dependencies>
 
     <build>
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
