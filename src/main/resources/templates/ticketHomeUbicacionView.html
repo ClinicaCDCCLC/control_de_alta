@@ -5,70 +5,12 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Boleto a Casa</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="refresh" th:content="60" >
-        <link rel="stylesheet" th:href="@{/css/lib/bootstrap.min.css}"/>
-        <link rel="stylesheet" th:href="@{/css/Utils.css}"/>
-        <script th:src="@{/js/lib/jquery.min.js}"></script>
-        <script th:src="@{/js/lib/bootstrap.min.js}"></script>
-        <script type="text/javascript" th:src="@{/js/src/TicketHomeModule.js}"></script>
+    <head th:replace="fragments/general.html :: head">
     </head>
-    <body>
+    <body th:onload="'javascript:ubc.timed_call(' + ${ubc} + ');'">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-4">
-                    <img th:src="@{/img/country_logo.png}" class="img-fluid" alt="Logo">
-                </div>
-                <div class="col-4">
-                    <h1>Gestión de Alta Oportuna</h1>
-                    <th:block th:if="${ticketHomeResults.size() > 0}">
-                        <h6 th:text="${ticketHomeResults[0].nomUbicacion}"></h6>
-                    </th:block>
-                </div>
-                <div class="col-4">
-                    <img th:src="@{/img/leyenda.png}" width="40%" height="40%" class="img-fluid" alt="Leyenda">
-                </div>
-            </div>
-            <div class="table-responsive">
-                <table class='table tableFixHead table-bordered'>
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col"> Habitación </th>
-                            <th scope="col"> Atención </th>
-                            <th scope="col"> Género </th>
-                            <th scope="col"> Boleto a Casa </th>
-                            <th scope="col"> Fecha Salida Probable </th>
-                            <th scope="col"> Fecha Ingreso </th>
-                            <th scope="col"> Médico Tratante </th>
-                            <th scope="col"> Días Postergación </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:if="${ticketHomeResults.empty}">
-                            <td colspan="8"> No Records Available </td>
-                        </tr>
-                    <th:block th:each="thr : ${ticketHomeResults}">
-                        <!-- 1=GREEN, 2=YELLOW, 3=RED-->
-                        <tr th:classappend="${(thr.color == 4 ? 'bgc-green' : '') +
-                            (thr.color == 3 ? 'bgc-red' : '') +
-                            (thr.color == 2 ? 'bgc-orange' : '') +
-                            (thr.color == 1 ? 'bgc-yellow' : '')}">
-                            <td><span th:text="${thr.codCama}"></span></td>
-                            <td><span th:text="${thr.idAtencion}"></span></td>
-                            <td><span th:text="${thr.genero}"></span></td>
-                            <td><span th:text="${thr.BAC}"></span></td>
-                            <td><span th:text="${thr.fecha_probable_salida}"></span></td>
-                            <td><span th:text="${thr.fecha_ingreso}"></span></td>
-                            <td><span th:text="${thr.medico_tratante}"></span></td>
-                            <td><span th:text="${thr.diasPostergacion}"></span></td>
-                        </tr>
-                    </th:block>
-                    </tbody>
-                </table>
-            </div>
+            <div th:replace="fragments/ticketHomeUbicacionFrags.html :: header"></div>
+            <div th:replace="fragments/ticketHomeUbicacionFrags.html :: table_"></div>
         </div>
     </body>
 </html>

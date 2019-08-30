@@ -33,6 +33,20 @@ public class TicketHomeController {
     @GetMapping("/idUbicacion={id_ubicacion}")
     public String getTicketHomeByIdUbicacion(@PathVariable int id_ubicacion, Model model) {
         model.addAttribute("ticketHomeResults", service.findAllbyIdUbicacion(id_ubicacion));
+        model.addAttribute("ubc", id_ubicacion);
         return "ticketHomeUbicacionView";
+    }
+
+    @GetMapping("/r")
+    public String getAllTicketHomeRefresh(Model model) {
+        model.addAttribute("ticketHomeResults", service.findAll());
+        return "fragments/ticketHomeFrags :: table_";
+    }
+
+    @GetMapping("/idUbicacion={id_ubicacion}/r")
+    public String getTicketHomeByIdUbicacionRefresh(@PathVariable int id_ubicacion, Model model) {
+        model.addAttribute("ticketHomeResults", service.findAllbyIdUbicacion(id_ubicacion));
+        model.addAttribute("ubc", id_ubicacion);
+        return "fragments/ticketHomeUbicacionFrags :: table_";
     }
 }
