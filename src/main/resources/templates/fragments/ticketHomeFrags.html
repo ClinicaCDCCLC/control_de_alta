@@ -10,14 +10,14 @@ and open the template in the editor.
     </head>
     <body>
         <div class="row" th:fragment="header">
-            <div class="col-lg-2">
+            <div class="col">
                 <img th:src="@{/img/country_logo.png}" class="img-fluid" alt="Logo">
             </div>
-            <div class="col-lg-4">
-                <h1>Gestión de Alta Oportuna</h1>
+            <div class="col">
+                <h2>Gestión de Alta Oportuna</h2>
             </div>
-            <div class="col-lg-auto">
-                <img th:src="@{/img/leyenda.png}" width="50%" height="50%" class="img-fluid" alt="Leyenda">
+            <div class="col">
+                <img th:src="@{/img/leyenda.png}" class="img-fluid" alt="Leyenda">
             </div>
         </div>
         <div id="table_home" class="table-responsive" th:fragment="table_">
